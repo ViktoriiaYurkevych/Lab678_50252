@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          chmod +x "instalResources.sh"
-          "instalResources.sh"
+          chmod +x "installResources.sh"
+          "installResources.sh"
       - name: Build executable
         run: pyinstaller --onefile --noconsole ui_async_version.py
 
