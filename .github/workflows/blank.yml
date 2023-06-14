@@ -23,16 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pyinstaller
-          pip install jsonlib
-          pip install xmltodict
-          pip install pyyaml
-          pip install PyQt5
+          python -m pip install --upgrade pip
+          chmod +x "instalResources.sh"
+          "instalResources.sh"
       - name: Build executable
         run: pyinstaller --onefile --noconsole ui_async_version.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: program
+          name: application
           path: dist/main.exe
