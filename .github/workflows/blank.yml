@@ -27,7 +27,7 @@ jobs:
           chmod +x "installResources.sh"
           "installResources.sh"
       - name: Build executable
-        run: pyinstaller --onefile --noconsole ui_async_version.py
+        run: pyinstaller --onefile --hidden-import=yaml,xmltodict ui_async_version.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
