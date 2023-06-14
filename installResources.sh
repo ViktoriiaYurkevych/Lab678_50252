@@ -1,5 +1,6 @@
-import sys
-import os
-import json
-import xml.etree.ElementTree as ET
-import yaml
+#!/bin/bash
+pip install pyinstaller
+pip install jsonlib
+pip install pyyaml
+pip install xmltodict
+pip install PyQt5
