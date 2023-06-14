@@ -1,0 +1,38 @@
+name: Build and Upload Artifact
+
+on:
+  push:
+    branches:
+      - executor
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: executor
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller
+          pip install jsonlib
+          pip install xmltodict
+          pip install pyyaml
+          pip install PyQt5
+      - name: Build executable
+        run: pyinstaller --onefile --noconsole ui_async_version.py
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: program
+          path: dist/main.exe
