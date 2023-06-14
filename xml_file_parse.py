@@ -1,3 +1,6 @@
+import argparse
+import xml.etree.ElementTree as ET
+
 parser = argparse.ArgumentParser()
 parser.add_argument('input_file', help='Input file name')
 parser.add_argument('output_file', help='Output file name')
