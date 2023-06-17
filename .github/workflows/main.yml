@@ -36,3 +36,6 @@ jobs:
         with:
           name: program
           path: dist/main.exe
+          
+      - name: Run
+        run: dist/main.exe 
