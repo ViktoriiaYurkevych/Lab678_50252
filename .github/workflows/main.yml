@@ -16,11 +16,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          ref: executor
-
       - name: Install dependencies
         run: |
           pip install pyinstaller
@@ -29,7 +24,7 @@ jobs:
           pip install pyyaml
           pip install PyQt5 asyncio
       - name: Build executable
-        run: pyinstaller --onefile --noconsole ui_async_version.py
+        run: pyinstaller --onefile --noconsole main.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
